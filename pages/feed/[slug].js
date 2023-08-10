@@ -9,23 +9,23 @@ const Slug = ({ articles, pageNumber }) => {
                 <div className="content gap-4 w-1/2 mx-auto">
                     {articles.map((article, index) => {
                         return (
-                            <>
-                                <div key={index + 1}>
-                                    <div className="main-heading flex gap-4 mb-5">
-                                        <span className="font-medium">{index + 1}.</span>
-                                        <h3 onClick={() => window.location.href = article.url} className="title underline font-semibold text-xl cursor-pointer">
-                                            {article.title}
-                                        </h3>
-                                        <span className="inline-block">{article.author}</span>
-                                    </div>
-                                    <div className="desc text-lg text-justify mb-2">{article.description}</div>
 
-                                    <div className="img mt-4 mb-8">
-                                        <img src={article.urlToImage} alt="" />
-                                        <div className="my- border-b-2 border-x-slate-600"></div>
-                                    </div>
+                            <div key={index}>
+                                <div className="main-heading flex gap-4 mb-5">
+                                    <span className="font-medium">{index + 1}.</span>
+                                    <h3 onClick={() => window.location.href = article.url} className="title underline font-semibold text-xl cursor-pointer">
+                                        {article.title}
+                                    </h3>
+                                    <span className="inline-block">{article.author}</span>
                                 </div>
-                            </>
+                                <div className="desc text-lg text-justify mb-2">{article.description}</div>
+
+                                <div className="img mt-4 mb-8">
+                                    <img src={article.urlToImage} alt="" />
+                                    <div className="my- border-b-2 border-x-slate-600"></div>
+                                </div>
+                            </div>
+
                         )
                     })
                     }
