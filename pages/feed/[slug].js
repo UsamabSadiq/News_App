@@ -7,7 +7,7 @@ const Slug = ({ articles, pageNumber }) => {
         <>
             <div className="main max-w-[1440px] mx-auto mt-4">
                 <div className="content gap-4 w-1/2 mx-auto">
-                    {articles.map((article, index) => {
+                    {articles?.map((article, index) => {
                         return (
 
                             <div key={index}>
@@ -21,7 +21,7 @@ const Slug = ({ articles, pageNumber }) => {
                                 <div className="desc text-lg text-justify mb-2">{article.description}</div>
 
                                 <div className="img mt-4 mb-8">
-                                    <img src={article.urlToImage} alt="" />
+                                    <img src={article.urlToImage} alt="news_image" />
                                     <div className="my- border-b-2 border-x-slate-600"></div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@ const Slug = ({ articles, pageNumber }) => {
 export const getServerSideProps = async (context) => {
 
     const pageNumber = context.query.slug
-    console.log('pageNumber', pageNumber);
+    // console.log('pageNumber', pageNumber);
     if (!pageNumber || pageNumber > 5 || pageNumber < 1) {
         return {
             props: {
